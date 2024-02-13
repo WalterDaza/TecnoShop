@@ -1,0 +1,19 @@
+.cardProduct-content{
+    display: flex;
+    max-width: 1400px;
+    min-width: 300px;
+    background-color: rgb(150, 150, 150);
+    flex-direction: column-reverse;
+    /* justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; */
+    gap: 40px;
+}
+.cardProducto-info{
+    width: 250px;
+    border: 1px solid red;
+    /* background-color: aqua; */
+}
+.cardProduct-img{
+    width: 120px;
+}

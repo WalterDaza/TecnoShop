@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TecnoShop</title>
+<!-- Iconos --------------- -------------------------------------------------------------------------->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+<!-- Links de CSS's propios -------------------------------------------------------------------------->
+    <link rel="stylesheet" href="assets/css/navBar.css">
+    <link rel="stylesheet" href="assets/css/menuDesplegable.css">
+    <link rel="stylesheet" href="assets/css/inicioSesion.css">
+    <link rel="stylesheet" href="assets/css/registro.css">
+    <link rel="stylesheet" href="assets/css/cardProducto.css">
+    <link rel="stylesheet" href="assets/css/publicidadSlider.css">
+<!-- estilos de letra Googlefonts --------------------------------------------------------------------->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<!----------------------------------------------------------------------------------------------------->
+
+
+</head>
+<body>
+<!-- NavBar ------------------------------------------------------------------------------------------>
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="#"><h1 class="home_title">TecnoShop</h1></a>
+            <i id="iconoMenu" class='bx bx-menu menu--principal'></i>
+            <input class="barra_busqueda">
+            <div id="menu" class="menu">
+                <a  class="menu__link inicio--sesion inicioSesion" >Inicia Sesión</a>
+                <a class="menu__link registro registrate" >Registrate</a>
+                <a class="menu__link" ><i class='bx bx-cart-alt carrito--compras'></i></a>
+            </div>      
+        </div>
+    </nav>
+
+<!-- Menu hamburguesa desplegable ----------------------------------------------------------------------->
+    <div class="menu--desplegable">
+        <div class="menu--contenido">
+            <div class="cerrarMenu--content">
+                <h2 class="menu--saludo">¡Hola!</h2>
+                <i class='bx bx-x cerrar cerrarMenu'></i>
+            </div>
+            <div class="menu--botones">
+                <button class="buttonInicioSesion inicioSesion">Inicia Sesión</button>
+                <button class="buttonRegistro registrate">Registrate</button>
+            </div>
+        </div>
+    </div>
+<!-- Inicio de Sesión ----------------------------------------------------------------------------------->
+    <div class="inicio--sesion--content">
+        <div class="inicio--sesion--card">
+            <i class='bx bx-x cerrar cerrarSesion'></i>
+            <h2 class="inicio-sesion-saludo">¡Hola!<br>Inicia sesión para comprar</h2>
+            <div class="inicio-sesion-input">
+                <input class="registro-input" id="txtloginCorreo" type="text" placeholder="Correo Electronico">
+                <input class="registro-input" id="txtloginContrasena" type="password" placeholder="Contraseña">
+            </div>
+            <button class="registro-boton" onclick="loginUser()">Ingresar</button>
+            <h2 class="inicio-sesion-registrate">¿Aún no tienes cuenta? <span class="registrate">Registrate</span></h2>
+        </div>
+    </div>
+<!-- Registro -------------------------------------------------------------------------------------------->
+    <div class="registro--content">
+        <div class="registro--card">
+            <i class='bx bx-x cerrar cerrarRegistro'></i>
+            <div class="registro-input-container">
+                <input class="registro-input" id="txtNombre" type="text" placeholder="Nombre y Apellidos">
+                <input class="registro-input" id="txtContrasena" type="password" placeholder="Contraseña">
+                <select class="registro-input document-option" name="" id="txtTipoDocumento">
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="cedulaCiudadania">Cedula Ciudadania</option>
+                    <option value="cedulaExtranjeria">Cedula Extranjeria</option>
+                </select>
+                <input class="registro-input" id="txtNumeroDocumento" type="text" placeholder="Numero de documento">
+                <input class="registro-input" id="txtCorreo" type="text" placeholder="Correo Electronico">
+                <input class="registro-input" id="txtTelefono" type="text" placeholder="Telefono">
+                <input class="registro-input" id="txtCiudad" type="text" placeholder="Ciudad">
+            </div> 
+                <button class="registro-boton" onclick="registroUser()" href="#">Registrarme</button>
+        </div>
+    </div>
+
+<!-- Slider Publicidad------------------------------------------------------------------------------------------->
+<section class="container-carousel-publicidad">
+    <div class="container-carousel">
+        <div class="carruseles" id="slider">
+            <div class="slider-section">
+                <img id="imagen1" alt="">
+            </div>
+            <div class="slider-section">
+                <img id="imagen2" alt="">
+            </div>
+            <div class="slider-section">
+                <img id="imagen3" alt="">
+            </div>
+        </div>
+        <div class="btn-left">*</div>
+        <div class="btn-rigth">></div>
+    </div>
+</section>
+<!-- Card Producto ------------------------------------------------------------------------------------>
+<div id="productos">
+</div>
+
+
+</body>
+</html>
+
+<script src="assets/js/publicidadSlider.js"></script>
+<script src="assets/js/cardRegistro.js"></script>
+<script src="assets/js/inicioSesion.js"></script>
+<script src="assets/js/menuDesplegable.js"></script>
+<script src="assets/js/funciones.js"></script>
+
