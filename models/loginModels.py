@@ -22,4 +22,4 @@ def loginUsuarioModel(datos):
     if result: #si existe el usuario traera un [] con la información del usuario encontrado
         return True
     else: 
-        return False #si no trae información que retorne None
+        return False #si no trae información que retorne False

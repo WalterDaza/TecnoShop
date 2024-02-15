@@ -12,7 +12,8 @@ def verPublicidadControllers(id=""):
             'id': row[0],
             'nombre': row[1],
             'descripcion': row[2],
-            'url': row[3]
+            'urlmax': row[3],
+            'urlmin': row[4],
         }
         result.append(contenido) #se envia información al result
 

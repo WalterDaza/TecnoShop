@@ -17,7 +17,8 @@ def verPublicidadModel(id = ""):
             id, 
             nombre,
             descripcion,
-            url
+            urlmax,
+            urlmin
         FROM
             publicidad
     """    

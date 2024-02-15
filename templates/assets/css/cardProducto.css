@@ -1,8 +1,7 @@
 .cardProduct-content{
     display: flex;
-    max-width: 1400px;
-    min-width: 300px;
-    background-color: rgb(150, 150, 150);
+    width: 100%;
+    background-color: rgb(231, 73, 73);
     flex-direction: column-reverse;
     /* justify-content: center;
     align-items: center;
@@ -10,8 +9,8 @@
     gap: 40px;
 }
 .cardProducto-info{
-    width: 250px;
-    border: 1px solid red;
+    width: 100%;
+    /* border: 1px solid red; */
     /* background-color: aqua; */
 }
 .cardProduct-img{

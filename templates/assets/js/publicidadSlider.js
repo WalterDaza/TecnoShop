@@ -3,11 +3,10 @@ const btnLeft = document.querySelector(".btn-left"),
     slider = document.querySelector("#slider"),
     sliderSection = document.querySelectorAll(".slider-section");
 
-let intervalId;
 
-// Agregar evento de click a los botones
-btnLeft.addEventListener("click", moveToLeft);
-btnRigth.addEventListener("click", moveToRigth);
+//Funciones de dar play y pausar movimiento automatico si el mause esta dentro del slider////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+let intervalId;
 
 // Iniciar el desplazamiento automático
 intervalId = setInterval(moveToRigth, 5000);
@@ -25,6 +24,48 @@ function pauseSlider() {
 function resumeSlider() {
     intervalId = setInterval(moveToRigth, 5000);
 }
+
+//Que cuando pase a modo celular, inferior a 720px de ancho, se maneje el slider de manera tactil////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Variables para almacenar las coordenadas de inicio y fin del toque
+let touchStartX = 0;
+let touchEndX = 0;
+
+// Manejador de evento para el inicio del toque
+function handleTouchStart(event) {
+    // Almacena la coordenada X del primer punto de contacto con la pantalla
+    touchStartX = event.touches[0].clientX;
+}
+
+// Manejador de evento para el movimiento del toque
+function handleTouchMove(event) {
+    // Actualiza la coordenada X del último punto de contacto con la pantalla mientras se mueve el dedo
+    touchEndX = event.touches[0].clientX;
+}
+
+// Manejador de evento para el final del toque
+function handleTouchEnd() {
+    // Si el desplazamiento horizontal del dedo es mayor a 50 píxeles hacia la izquierda, mueve el slider hacia la derecha
+    if (touchStartX - touchEndX > 50) {
+        moveToRigth();
+    } 
+    // Si el desplazamiento horizontal del dedo es mayor a 50 píxeles hacia la derecha, mueve el slider hacia la izquierda
+    else if (touchEndX - touchStartX > 50) {
+        moveToLeft();
+    }
+}
+
+// Agregar manejadores de eventos para los eventos táctiles
+slider.addEventListener("touchstart", handleTouchStart);
+slider.addEventListener("touchmove", handleTouchMove);
+slider.addEventListener("touchend", handleTouchEnd);
+
+//Funciones de movimiento al dar click////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Agregar evento de click a los botones
+btnLeft.addEventListener("click", moveToLeft);
+btnRigth.addEventListener("click", moveToRigth);
 
 //Funcion para mover el slider a la derecha
 

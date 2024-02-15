@@ -115,10 +115,12 @@ async function verPublicidad(){
     });
     publicidades = await respuesta.json(); //formato json
 
+    // console.log(publicidades)
     // Asignar las URLs de las imágenes de la publicidad
     for (let i = 0; i < publicidades.length; i++) {
-        let imagen = document.getElementById(`imagen${i + 1}`);
-        imagen.src = publicidades[i] ? publicidades[i].url : ""; // Si hay publicidad, asignar la URL, de lo contrario, dejar el src vacío
+        let imagen = document.getElementById(`imagen${i + 1}`); //itera el id de cada img
+        let src = window.innerWidth >= 768 ? publicidades[i].urlmax : publicidades[i].urlmin;
+        imagen.src = src; //si es superior a 768px mostrara urlmax y si es inferior urlmin
         imagen.alt = publicidades[i] ? publicidades[i].descripcion : ""; // Si hay publicidad, asignar la descripción, de lo contrario, dejar alt vacío
     }
 }

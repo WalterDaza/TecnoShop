@@ -4,6 +4,8 @@ html {
 
 body {
     margin: 0;
+    border: 0;
+    padding: 0;
     /* background-color: black; */
 }
   
@@ -19,7 +21,7 @@ a {
     height: 60px;
     background: linear-gradient(#ff6200, #f7985d);
     box-shadow: 0px 0px 15px -3px #1f1f1fc2;
-    /* z-index: 4; */
+    z-index: 4;
     transition: all .3s ease;
   }
   
@@ -54,7 +56,6 @@ a {
 
 .carrito--compras{
     font-size: 40px;
-    /* transition: all .3s ease; */
 }
 .home_title{
     margin: 0;
@@ -81,13 +82,13 @@ a {
     }
     .menu--principal{
         position: absolute;
-        right: 15%;
+        right: 18%;
         top: 15px;
     }
     .carrito--compras{
         position: absolute;
         padding: 0px;
-        right: 4%;
+        right: 10%;
         top: 10px;
     }
     .menu{
@@ -105,18 +106,22 @@ a {
     }
 }
 @media (max-width: 530px) {
-    .menu--principal{
-        right: 20%;
-    }
-}
-@media (max-width: 530px) {
+    /* .menu--principal{
+        right: 25%;
+    } */
     .barra_busqueda{
         width: 80%;
         transition: all .3s ease;
     }
+    .carrito--compras{
+        right: 10%;
+    }
+    .menu--principal{
+        right: 25%;
+    }
+
 }
 
-@media (min-width: 768px) {
-
+@media (max-width: 420px) {
 
 }

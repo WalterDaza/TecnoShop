@@ -5,6 +5,7 @@ from controllers.productsControllers import * #importación de controladores
 from controllers.registroController import *
 from controllers.loginController import *
 from controllers.publicidadController import *
+from controllers.filtrosProductsController import *
 
 app = Flask(__name__) #instaciamiento
 cors = CORS(app)
@@ -92,7 +93,6 @@ def loginUser(): #información que se solicita al usuario en formato JSON
     ]
 
     result = loginUsuariosController(datos)
-    print("Resultado Main: ", result)
     return result
 
 #Ver publicidad******************************************************************************************
@@ -100,6 +100,18 @@ def loginUser(): #información que se solicita al usuario en formato JSON
 @cross_origin()
 def getAllPublicidad():
     return verPublicidadControllers()
+
+#Filtros Productos******************************************************************************************
+#Filtro por marca***************
+@app.route('/api/filtromarca/<marca>')
+@cross_origin()
+def filtroMarca(marca):
+    return filtroMarcaController(marca)
+#Filtro por categoria***************
+@app.route('/api/filtrocategoria/<categoria>')
+@cross_origin()
+def filtroCategoria(categoria):
+    return  filtroCategoriaController(categoria)
 
 
 
