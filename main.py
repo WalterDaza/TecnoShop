@@ -57,7 +57,7 @@ def updateProduct():
     ]
     return modifcarProductosControllers(datos)
 
-#Borrar Usuario****************************************
+#Borrar Productos****************************************
 @app.route('/api/productos/<id>', methods = ["DELETE"])
 @cross_origin()
 
@@ -101,18 +101,19 @@ def loginUser(): #información que se solicita al usuario en formato JSON
 def getAllPublicidad():
     return verPublicidadControllers()
 
-#Filtros Productos******************************************************************************************
+#Filtros Productos*********************************************************************************************
+
 #Filtro por marca***************
 @app.route('/api/filtromarca/<marca>')
 @cross_origin()
 def filtroMarca(marca):
     return filtroMarcaController(marca)
+
 #Filtro por categoria***************
 @app.route('/api/filtrocategoria/<categoria>')
 @cross_origin()
 def filtroCategoria(categoria):
     return  filtroCategoriaController(categoria)
-
 
 
 #pagina por defecto

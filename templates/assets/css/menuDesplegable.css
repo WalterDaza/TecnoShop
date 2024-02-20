@@ -7,14 +7,14 @@
     background-color: rgba(0, 0, 0, 0.589);
     position: fixed;
     top: 0;
-    overflow: auto;
 }
 
 .menu--contenido{
     background-color: white;
-    width: 300px;
+    width: 280px;
     height: 100%;
     box-shadow: 8px 10px 10px -6px rgb(63, 63, 63);
+    overflow: auto;
 }
 
 .cerrar{
@@ -63,6 +63,16 @@
     background-color: #f0833f;
     padding: 12px;
     cursor: pointer;
+}
+
+.menu--categorias{
+    background-color: aqua;
+}
+
+.categorias{
+    margin: 0px;
+    cursor: pointer;
+    /* background-color: #ff6200; */
 }
 
 @media (max-width: 768px) {

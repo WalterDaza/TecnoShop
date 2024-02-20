@@ -4,8 +4,9 @@ const URL = "http://127.0.0.1:3010/api/"
 function init (){ //muestra todos los GET que se requieran en la pagina
     verProductos(),
     verPublicidad()
+
 }
-//Card productos***********************************************************************
+//Card productos***********************************************************************************
 
 let productos = [];
 
@@ -23,17 +24,18 @@ async function verProductos(){
     productos = await respuesta.json(); //formato json
 
     let html = "";
-
     for (producto of productos){ //crear formato html
         let row = 
         `<div class="cardProduct-content">
             <div class="cardProducto-info">
+                <h2>${producto.marca}</h2>
+                <img class="cardProduct-img" src="${producto.URL_imagen}" alt="">
                 <h1 class="">${producto.nombre}</h1>
                 <h2>${producto.descripcion}</h2>    
+                <h2>${producto.descuento}%</h2>
                 <h2>${producto.precio}</h2>
-                <img class="cardProduct-img" src="${producto.URL_imagen}" alt="">
-                <h2>${producto.stock}</h2>
-                <h2>${producto.id_vendedor}</h2>
+                <h2>${producto.precio_descuento}</h2>
+                <h2>Unidades disponibles ${producto.stock}</h2>
             </div>
         </div>`;
         html = html + row 
@@ -42,7 +44,7 @@ async function verProductos(){
 }
 
 
-//Registro*************************************************************************************
+//Registro**********************************************************************************************
 async function registroUser(){
     let data = { //data con Id's de los inputs creado en el formulario
         nombre: document.getElementById("txtNombre").value,
@@ -74,7 +76,7 @@ async function registroUser(){
     window.location.reload(); //Actualización de
 }
 
-//Inicio de Sesión***********************************************************************************
+//Inicio de Sesión***************************************************************************************
 async function loginUser(){
     let data = {
         correo: document.getElementById("txtloginCorreo").value,
@@ -100,7 +102,7 @@ async function loginUser(){
     window.location.reload();
 }
 
-//Ver Publicidad***********************************************************************
+//Ver Publicidad***********************************************************************************************
 let publicidades = [];
 
 async function verPublicidad(){
@@ -123,4 +125,31 @@ async function verPublicidad(){
         imagen.src = src; //si es superior a 768px mostrara urlmax y si es inferior urlmin
         imagen.alt = publicidades[i] ? publicidades[i].descripcion : ""; // Si hay publicidad, asignar la descripción, de lo contrario, dejar alt vacío
     }
+}
+
+//Ver productos filtrados**************************************************************************************
+let filtros = [];
+// Array de categorías
+const categorias = ["celular", "computador", "televisor", "video", "consola", "audio", "almacenamiento"];
+
+// Iterar sobre las categorías para crear los event listeners
+categorias.forEach(categoria => {
+    const elementoCategoria = document.getElementById(categoria); //id de la categoria
+    elementoCategoria.addEventListener("click", () => filtrosProductos(categoria)); //evento click
+});
+
+async function filtrosProductos(categoria){
+    let url = URL + `filtrocategoria/${categoria}` //se le asigna el parametro a la URL
+
+    let respuesta = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Content-Type":"application/json"
+        }
+    });
+    filtros = await respuesta.json();
+
+    console.log(filtros)
+    localStorage.setItem('productosFiltrados', JSON.stringify(filtros));
+    window.location.href = 'templates/productos.html';
 }

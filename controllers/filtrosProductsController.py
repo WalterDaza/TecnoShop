@@ -45,4 +45,6 @@ def filtroCategoriaController(categoria):
         }
         result.append(contenido)
 
-    return jsonify(result) 
+    return jsonify(result)
+
+#Filtro de productos por precio**********************************************

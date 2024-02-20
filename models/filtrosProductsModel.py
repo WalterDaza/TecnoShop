@@ -35,3 +35,16 @@ def filtroCategoriaProductoModel (categoria):
 
     result = con.getdata(sql)
     return result
+
+#Filtro de productos por precio**********************************************
+def filtroPrecioProductoModel (precio):
+    sql = """
+            SELECT * 
+        FROM   
+            productos 
+        WHERE 
+            precio BETWEEN {0} AND {1};
+    """.format(precio[0], precio[1])
+
+    result =con.getdata(sql)
+    return result

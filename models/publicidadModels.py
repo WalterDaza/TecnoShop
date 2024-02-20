@@ -11,7 +11,7 @@ con = DataSourceMysql(
 )
 
 #Ver Publicidad completa**********************************************
-def verPublicidadModel(id = ""):
+def verPublicidadModel(id):
     sql = """
         SELECT
             id, 
@@ -22,9 +22,4 @@ def verPublicidadModel(id = ""):
         FROM
             publicidad
     """    
-    #en caso de seleccionar uno en especifico
-    if len(id) != 0:
-        sql += """
-            WHERE id LIKE '%{0}%'
-        """.format(id)
     return con.getdata(sql)

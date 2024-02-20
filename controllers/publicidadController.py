@@ -1,7 +1,7 @@
 from models.publicidadModels import * #importar todos los modelos
 from flask import jsonify #libreria para formatos json
 
-#Ver productos*******************************************
+#Ver publicidad*******************************************
 def verPublicidadControllers(id=""):
     datos = verPublicidadModel(id)
     result = []
