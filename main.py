@@ -104,16 +104,22 @@ def getAllPublicidad():
 #Filtros Productos*********************************************************************************************
 
 #Filtro por marca***************
-@app.route('/api/filtromarca/<marca>')
+@app.route('/api/filtromar/<marca>')
 @cross_origin()
 def filtroMarca(marca):
     return filtroMarcaController(marca)
 
 #Filtro por categoria***************
-@app.route('/api/filtrocategoria/<categoria>')
+@app.route('/api/filtrocat/<categoria>')
 @cross_origin()
 def filtroCategoria(categoria):
     return  filtroCategoriaController(categoria)
+
+#Filtro por descuento***************
+@app.route('/api/filtrodes')
+@cross_origin()
+def filtroDescuento():
+    return  filtroDescuentoController()
 
 
 #pagina por defecto

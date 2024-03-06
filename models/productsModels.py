@@ -16,6 +16,10 @@ def verProductosModel(id = ""):
         SELECT
             id, 
             nombre,
+            marca,
+            categoria,
+            descuento,
+            precio_descuento,
             descripcion,
             precio,
             URL_imagen,
@@ -24,12 +28,6 @@ def verProductosModel(id = ""):
         FROM
             productos
     """
-    #en caso de seleccionar un usuario en especifico
-    if len(id) != 0:
-        sql += """
-            WHERE id LIKE '%{0}%'
-        """.format(id)
-
     return con.getdata(sql)
 
 #Crear Productos*******************************************************

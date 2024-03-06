@@ -10,11 +10,23 @@
 }
 
 .menu--contenido{
+    position: relative;
     background-color: white;
     width: 280px;
     height: 100%;
     box-shadow: 8px 10px 10px -6px rgb(63, 63, 63);
     overflow: auto;
+}
+
+.cerrarMenu--content{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    width: 280px;
+    height: 10%;
+    background-color: #f7f7f7;
+    box-shadow: 0px 5px 8px -4px rgb(255, 197, 121);
+    border-top: 4px solid #ff6200;
 }
 
 .cerrar{
@@ -25,17 +37,8 @@
 
 .cerrarMenu{
     position: absolute;
-    top: 3%;
-    left: 250px;
-}
-
-.cerrarMenu--content{
-    display: flex;
-    width: 100%;
-    height: 10%;
-    background-color: #f7f7f7;
-    box-shadow: 0px 5px 8px -4px rgb(255, 197, 121);
-    border-top: 4px solid #ff6200;
+    top: 25%;
+    left: 230px;
 }
 
 .menu--saludo{
@@ -45,7 +48,6 @@
 
 .menu--botones{
     display: none;
-    
 }
 
 .buttonInicioSesion{
@@ -66,24 +68,57 @@
 }
 
 .menu--categorias{
-    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1%;
+    height: 60%;
+    padding-top: 30%;
+    /* background-color: aqua; */
 }
 
 .categorias{
+    position: relative;
     margin: 0px;
     cursor: pointer;
-    /* background-color: #ff6200; */
+    font-size: 120%;
+    padding: 15px;
+    padding-left: 8%;
+    width: 80%;
+    border-radius: 5px;
+    color:rgb(107, 107, 107);
+}
+
+.categorias:hover{
+    background-color:#f5f5f5;
+    border-left: 4px #ff6200 solid;
+    color:rgb(73, 73, 73);
+}
+
+.categoria-right{
+    position: absolute;
+    left: 235px;
+    font-size: 25px;
+}
+
+.categorias:hover .categoria-right{
+    color: #ff6200;
 }
 
 @media (max-width: 768px) {
     .menu--botones{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background-color: aqua; */
-    height: 12%;
-    gap: 12%;
-    border-bottom: 1px solid rgb(196, 196, 196);
-    transition: width 0.5s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* background-color: aqua; */
+        height: 12%;
+        gap: 12%;
+        border-bottom: 1px solid rgb(196, 196, 196);
+        transition: width 0.5s ease;
+        padding-top: 22%;
+    }
+    .menu--categorias{
+        height: 70%;
+        padding-top: 6%;
     }
 }

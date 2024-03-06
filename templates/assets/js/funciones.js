@@ -8,7 +8,7 @@ function init (){ //muestra todos los GET que se requieran en la pagina
 }
 //Card productos***********************************************************************************
 
-let productos = [];
+// let productos = [];
 
 
 async function verProductos(){
@@ -127,29 +127,46 @@ async function verPublicidad(){
     }
 }
 
-//Ver productos filtrados**************************************************************************************
-let filtros = [];
+//Ver productos filtrados por categoria***************************************************************************
 // Array de categorías
 const categorias = ["celular", "computador", "televisor", "video", "consola", "audio", "almacenamiento"];
 
 // Iterar sobre las categorías para crear los event listeners
 categorias.forEach(categoria => {
     const elementoCategoria = document.getElementById(categoria); //id de la categoria
-    elementoCategoria.addEventListener("click", () => filtrosProductos(categoria)); //evento click
+    elementoCategoria.addEventListener("click", () => filtrosProductosCategoria(categoria)); //evento click
 });
 
-async function filtrosProductos(categoria){
-    let url = URL + `filtrocategoria/${categoria}` //se le asigna el parametro a la URL
+async function filtrosProductosCategoria(categoria){
+    window.location.href = `templates/productos.html?variable=${categoria}`;
+    //Se envia por la ruta la categoria donde haya dado click 
+}
 
-    let respuesta = await fetch(url, {
-        method: "GET",
-        headers: {
-            "Content-Type":"application/json"
-        }
-    });
-    filtros = await respuesta.json();
+//Ver productos filtrados por descuento***************************************************************************
+const descuentos = document.getElementById("descuento"); //Componente con ID "descuento"
 
-    console.log(filtros)
-    localStorage.setItem('productosFiltrados', JSON.stringify(filtros));
-    window.location.href = 'templates/productos.html';
+descuentos.addEventListener("click", filtroProductoDescuento); // evento click y asignación de función
+
+async function filtroProductoDescuento () { // función de ruta
+    window.location.href = `templates/productos.html?variable=${"descuento"}`;
+        //Se envia por la ruta la palabra descuento donde haya dado click 
+}
+
+//Ver productos por busqueda del input***************************************************************************
+const searchInput = document.getElementById("searchInput");
+const searchButton = document.getElementById("searchButton");
+// Escuchar el evento de pulsación de tecla en el campo de búsqueda
+searchInput.addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+        realizarBusqueda(searchInput.value);
+    }
+});
+
+// Escuchar el evento de clic en el botón de búsqueda
+searchButton.addEventListener("click", function() {
+    realizarBusqueda(searchInput.value);
+});
+
+function realizarBusqueda() {
+    window.location.href = `templates/productos.html?input=${searchInput.value}`
 }

@@ -11,11 +11,15 @@ def verProductosControllers(id=""):
         contenido = {
             'id': row[0],
             'nombre': row[1],
-            'descripcion': row[2],
-            'precio': row[3],
-            'URL_imagen' : row[4],
-            'stock' : row[5],
-            'id_vendedor' : row[6]
+            'marca': row[2],
+            'categoria': row[3],
+            'descuento': row[4],
+            'precio_descuento': row[5],
+            'descripcion': row[6],
+            'precio': row[7],
+            'URL_imagen' : row[8],
+            'stock' : row[9],
+            'id_vendedor' : row[10]
         }
         result.append(contenido) #se envia información al result
 

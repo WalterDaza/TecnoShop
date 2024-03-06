@@ -48,13 +48,37 @@
     color: white;
     font-family: 'Pacifico', cursive;
 }
+/* Barra de busqueda ******************************************************************/
+.input_search{
+    position: relative;
+    width: 45%;
+}
 .barra_busqueda{
-    padding: 7px;
+    padding: 0;
+    height: 35px;
     border: none;
     border-radius: 20px;
-    width: 40%;
+    width: 100%;
+    text-indent: 15px;
 }
 
+.barra_busqueda_boton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+    border-radius: 20px;
+    width: 35px;
+    height: 100%;
+    background-color: rgb(180, 180, 180);
+    cursor: pointer;
+    font-size: 20px;
+    color: #3f3f3f;
+}
+/* Menú desplegable ******************************************************************/
 .menu--principal{
     color: white;
     cursor: pointer;
@@ -83,29 +107,31 @@
     .navbar {
         height: 90px;
     }
-    .barra_busqueda{
-        width: 70%;
+    .input_search{
+        width: 80%;
         position: absolute;
         bottom: -10px;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+    .barra_busqueda{
+        height: 30px;
+    }
+    .barra_busqueda_boton{
+        width: 30px;
+        height: 30px;
     }
 }
 @media (max-width: 530px) {
     /* .menu--principal{
         right: 25%;
     } */
-    .barra_busqueda{
-        width: 80%;
-        transition: all .3s ease;
-    }
     .carrito--compras{
         right: 10%;
     }
     .menu--principal{
         right: 25%;
     }
-
 }
 
 @media (max-width: 420px) {

@@ -4,7 +4,7 @@ const btnLeft = document.querySelector(".btn-left"),
     sliderSection = document.querySelectorAll(".slider-section");
 
 
-//Funciones de dar play y pausar movimiento automatico si el mause esta dentro del slider////////////////////////
+//Funciones de dar play y pausar movimiento automatico si el mouse esta dentro del slider////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 let intervalId;
 

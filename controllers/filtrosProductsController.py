@@ -44,7 +44,29 @@ def filtroCategoriaController(categoria):
             'id_vendedor': row[10]
         }
         result.append(contenido)
-
     return jsonify(result)
 
 #Filtro de productos por precio**********************************************
+
+#Filtro de productos por descuento**********************************************
+def filtroDescuentoController(descuento=""):
+    datos = filtroDescuentoProductoModel(descuento)
+    result = []
+
+    for row in datos:
+        contenido = {
+            'id': row[0],
+            'nombre': row[1],
+            'descripcion': row[2],
+            'marca': row[3],
+            'descuento': row[4],
+            'precio_descuento': row[5],
+            'categoria': row[6],
+            'precio': row[7],
+            'URL_imagen': row[8],
+            'stock': row[9],
+            'id_vendedor': row[10]
+        }
+        result.append(contenido)
+
+    return jsonify(result)
