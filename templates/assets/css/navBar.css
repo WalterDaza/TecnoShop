@@ -13,21 +13,17 @@
   
 .navbar__container {
     display: flex;
-    justify-content: center;
     align-items: center;
     width: 100%;
     max-height: 60px;
-    /* border: 1px solid pink; */
-    justify-content: space-between;
-    padding-left: 50px;
+    justify-content: space-evenly;
 }
  
 .menu {
     z-index: 2;
-    padding-right: 3%;
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .menu__link {
@@ -100,6 +96,11 @@
         padding: 0px;
         right: 10%;
         top: 10px;
+    }
+    .navbar__container {
+        justify-content: start;
+        padding-left: 10%;
+
     }
     .menu{
         padding: 0;

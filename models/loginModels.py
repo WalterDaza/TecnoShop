@@ -9,6 +9,7 @@ con = DataSourceMysql(
     configuracion["port"],
     configuracion["tipo_bd"]
 )
+
 def loginUsuarioModel(datos):
     sql = """
     SELECT * FROM `comprador` 
@@ -20,6 +21,6 @@ def loginUsuarioModel(datos):
     result = con.getdata(sql)
 
     if result: #si existe el usuario traera un [] con la información del usuario encontrado
-        return True
+        return result[0]
     else: 
-        return False #si no trae información que retorne False
+        return None #si no trae información que retorne None

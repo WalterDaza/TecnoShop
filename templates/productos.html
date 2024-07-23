@@ -9,21 +9,178 @@
 <!-- Links de CSS's propios --------------------------------------------------------------------------->
     <link rel="stylesheet" href="assets/css/cardProducto.css">
     <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/navBar.css">
+    <link rel="stylesheet" href="assets/css/menuDesplegable.css">
+    <link rel="stylesheet" href="assets/css/inicioSesion.css">
+    <link rel="stylesheet" href="assets/css/registro.css">
+    <link rel="stylesheet" href="assets/css/carritoCompras.css">
+    <link rel="stylesheet" href="assets/css/configuracion.css">
 <!-- estilos de letra Google fonts -------------------------------------------------------------------->
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <!----------------------------------------------------------------------------------------------------->
 </head>
 
 <body>
-    
-<!-- Section de filtros realizados --------------------------------------------------------------------->
-<div id="categoria">
+
+<!-- NavBar ------------------------------------------------------------------------------------------->
+<nav class="navbar">
+    <div class="navbar__container">
+        <a href="/index.html"><h1 class="home_title">TecnoShop</h1></a>
+        <i id="iconoMenu" class='bx bx-menu menu--principal'></i>
+        <div class="input_search">
+            <input class="barra_busqueda" id="searchInput">
+            <button class="barra_busqueda_boton" id="searchButton"><i class='bx bx-search'></i></button>
+        </div>
+        <div id="menu" class="menu">
+            <a  class="menu__link inicio--sesion inicioSesion" >Inicia Sesión</a>
+            <a class="menu__link registro registrate" >Registrate</a>
+            <!-- Menú desplegable -->
+            <div class="dropdown" style="display:none;">
+                <a href="javascript:void(0)" class="menu__link dropbtn"><h4 id="user-name"></h4><i class='bx bx-chevron-down'></i></a>
+                <div class="dropdown-content">
+                    <a class="menu__link configuracion">Mi Cuenta</a>
+                    <hr class="division-dropdown">
+                    <a href="#" id="logout" class="menu__link">Cerrar Sesión</a>
+                </div>
+            </div>
+            <a class="menu__link" ><i class='bx bx-cart-alt carrito--compras'></i></a>
+        </div>      
+    </div>
+</nav>
+<!-- Menu hamburguesa desplegable ----------------------------------------------------------------------->
+<div class="menu--desplegable">
+    <div class="menu--contenido">
+        <div class="cerrarMenu--content">
+            <h2 class="menu--saludo">¡Hola!</h2>
+            <i class='bx bx-x cerrar cerrarMenu'></i>
+        </div>
+        <div class="menu--botones">
+            <button class="buttonInicioSesion inicioSesion">Inicia Sesión</button>
+            <button class="buttonRegistro registrate">Registrate</button>
+        </div>
+        <div class="menu--categorias">
+            <h2 class="categorias" id="celular">Moviles <i class='bx bxs-chevron-right categoria-right'></i></h2>
+            <h2 class="categorias" id="computador">Computación <i class='bx bxs-chevron-right categoria-right'></i></h2>
+            <h2 class="categorias" id="televisor">Televisión <i class='bx bxs-chevron-right categoria-right'></i></h2>
+            <h2 class="categorias" id="video"> Video <i class='bx bxs-chevron-right categoria-right'></i></h2>
+            <h2 class="categorias" id="consola">Consolas <i class='bx bxs-chevron-right categoria-right'></i></h2>
+            <h2 class="categorias" id="audio">Audio <i class='bx bxs-chevron-right categoria-right'></i></h2>
+            <h2 class="categorias" id="almacenamiento">Almacenamiento <i class='bx bxs-chevron-right categoria-right'></i></h2>
+            <h2 class="categorias" id="descuento">Descuentos <i class='bx bxs-chevron-right categoria-right'></i></h2>
+        </div>
+    </div>
 </div>
 
+<!-- Inicio de Sesión ----------------------------------------------------------------------------------->
+<div class="inicio--sesion--content">
+    <div class="inicio--sesion--card">
+        <i class='bx bx-x cerrar cerrarSesion'></i>
+        <h2 class="inicio-sesion-saludo">¡Hola!<br>Inicia sesión para comprar</h2>
+        <div class="inicio-sesion-input">
+            <input class="registro-input" id="txtloginCorreo" type="text" placeholder="Correo Electronico">
+            <input class="registro-input" id="txtloginContrasena" type="password" placeholder="Contraseña">
+        </div>
+        <button class="registro-boton" onclick="loginUser()">Ingresar</button>
+        <h2 class="inicio-sesion-registrate">¿Aún no tienes cuenta? <span class="registrate">Registrate</span></h2>
+    </div>
+</div>
+
+<!-- Registro -------------------------------------------------------------------------------------------->
+<div class="registro--content">
+    <div class="registro--card">
+        <i class='bx bx-x cerrar cerrarRegistro'></i>
+        <div class="registro-input-container">
+            <input class="registro-input" id="txtNombre" type="text" placeholder="Nombre y Apellidos">
+            <input class="registro-input" id="txtContrasena" type="password" placeholder="Contraseña">
+            <select class="registro-input document-option" name="" id="txtTipoDocumento">
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="cedulaCiudadania">Cedula Ciudadania</option>
+                <option value="cedulaExtranjeria">Cedula Extranjeria</option>
+            </select>
+            <input class="registro-input" id="txtNumeroDocumento" type="text" placeholder="Numero de documento">
+            <input class="registro-input" id="txtCorreo" type="text" placeholder="Correo Electronico">
+            <input class="registro-input" id="txtTelefono" type="text" placeholder="Telefono">
+            <input class="registro-input" id="txtCiudad" type="text" placeholder="Ciudad">
+        </div> 
+            <button class="registro-boton" onclick="registroUser()" href="#">Registrarme</button>
+    </div>
+</div>
+
+<!-- Configuración user --------------------------------------------------------------------------------------->
+<div class="configuracion-content">
+    <div class="registro--card">
+        <h1 class="inicio-sesion-saludo">Datos Personales</h1>
+        <i class='bx bx-x cerrar cerrarConfiguracion'></i>
+        <form class="form-content" id="updateUserForm">
+            <label class="configuracion-titulo" for="updateNombre">Nombre</label>
+            <input class="configuracion-input" type="text" id="updateNombre" name="nombre"><br>
+            <label class="configuracion-titulo" for="updateCorreo">Correo</label>
+            <input class="configuracion-input" type="text" id="updateCorreo" name="correo"><br>
+            <label class="configuracion-titulo" for="updateDocumento">Documento</label>
+            <input class="configuracion-input" type="text" id="updateDocumento" name="documento"><br>
+            <label class="configuracion-titulo" for="updateTelefono">Teléfono</label>
+            <input class="configuracion-input" type="text" id="updateTelefono" name="telefono"><br>
+            <label class="configuracion-titulo" for="updateCiudad">Ciudad</label>
+            <input class="configuracion-input" type="text" id="updateCiudad" name="ciudad"><br>
+            <button class="registro-boton" type="button" id="guardarCambios">Guardar</button>
+            <button class="registro-boton delete-confi" type="button" id="eliminarUser">Eliminar</button>
+        </form>
+    </div>
+</div>
+
+<!-- Carrito de Compras----------------------------------------------------------------------------------->
+<div class="cart-content">
+    <div class="cart-card">
+        <div class="cart-card-scroll">
+            <div class="cerrarCarrito--content">
+                <h2 class="carrito--saludo">Resumen Carrito</h2>
+                <i class='bx bx-x cerrar cerrarCarrito'></i>
+            </div>
+            <div class="sectionCarrito-content" id="carritoProductos">
+                <!-- Contenedor donde se mostrarán los productos agregados-->
+            </div>
+        </div>
+        <h2 class="carritoTotal">Total: $<span class="preciototal" id="totalCompra">0.00</span></h2>
+        <button class="carrito-boton" onclick="vaciarCarrito()">Comprar</button>
+    </div>
+</div>
+    
+<!-- Section de filtros realizados --------------------------------------------------------------------->
+<section class="sectionProductos-content">
+
+<!-- Filtro marca y precio------------------------------------------------------------------------------>
+    <section class="cardProducto-filtro-container">
+        <div class="cardProducto-filtro">
+            <!-- resultado de busqueda o de categoria seleccionada ------------------------------------------------->
+            <div class="sectionProductos-busqueda" id="mensaje">
+        
+            </div>
+            <label for="marca">Marca:</label>
+            <select id="marca">
+                <!-- Opciones de marca se agregarán dinámicamente -->
+            </select>
+            
+            <label for="precio">Precio:</label>
+            <select id="precio">
+                <!-- Opciones de precio se agregarán dinámicamente -->
+            </select>
+        </div>
+    </section>
+
+<!-- Card Product del resultado del filtro--------------------------------------------------------------->
+<section class="cardProducto-section" id="categoria">
+
+</section>
 <!------------------------------------------------------------------------------------------------------>
 
 </body>
 
 </html>
+<script src="assets/js/cardRegistro.js"></script>
+<script src="assets/js/inicioSesion.js"></script>
+<script src="assets/js/menuDesplegable.js"></script>
+<script src="assets/js/funciones.js"></script>
 <script src="assets/js/productos.js"></script>
+<script src="assets/js/carritoCompras.js"></script>
+<script src="assets/js/configuracion.js"></script>
 

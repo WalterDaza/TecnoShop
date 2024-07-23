@@ -27,6 +27,7 @@
     height: 400px;
     box-shadow: 8px 10px 10px -6px rgb(63, 63, 63);
     transition: width 0.5s ease;
+    border-radius: 2%;
 }
 
 .inicio-sesion-saludo{
@@ -73,3 +74,48 @@ span{
         width: 90%;
     }
 }
+
+
+/* Despues del logeo */
+.dropbtn{
+    display: flex;
+}
+.dropdown {
+    position: relative; 
+    display: flex;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fc7a29;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #ff8c45;
+    border-radius: 0% 0% 10px 10px;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .division-dropdown{
+    width: 80%;
+    margin: 0 auto;
+    border-color: #f7985d;
+  }
+  .bx-chevron-down{
+    padding-left: 5px;
+  }

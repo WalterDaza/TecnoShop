@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var iconoMenu = document.getElementById("iconoMenu");
     var menuDesplegable = document.querySelector(".menu--desplegable");
     var iconoCerrar = document.querySelector(".cerrarMenu");
+    var seleccionCategoria = document.querySelectorAll(".categorias");
   
     iconoMenu.addEventListener("click", function() {
       // Cambiar la visibilidad del modal
@@ -18,5 +19,12 @@ document.addEventListener("DOMContentLoaded", function() {
       if (event.target === menuDesplegable) {
         menuDesplegable.style.display = "none";
       }
+    });
+    //Iterar sobre todos los que tenga class="categoria" y asiganar el evento click
+    seleccionCategoria.forEach(function(seleccionCategoria) {
+      seleccionCategoria.addEventListener("click", function(event) {
+          menuDesplegable.style.display = "none";
+          event.stopPropagation();
+      });
     });
   });

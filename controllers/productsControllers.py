@@ -39,3 +39,4 @@ def modifcarProductosControllers(datos):
 def borrarProductosControllers(id):
     result = [str(borrarProductosModel(id))] #se pasa la respuesta (boolean) a texto con str
     return jsonify(result)
+

@@ -6,6 +6,7 @@ from controllers.registroController import *
 from controllers.loginController import *
 from controllers.publicidadController import *
 from controllers.filtrosProductsController import *
+from controllers.updateUserController import *
 
 app = Flask(__name__) #instaciamiento
 cors = CORS(app)
@@ -95,6 +96,30 @@ def loginUser(): #información que se solicita al usuario en formato JSON
     result = loginUsuariosController(datos)
     return result
 
+#Configuración usuario****************************************************************************************
+@app.route('/api/updateUser', methods=["POST"])
+@cross_origin()
+
+def updateUser():
+    datos = [
+        request.json['id'],
+        request.json['nombre'],
+        request.json['telefono'],
+        request.json['ciudad'],
+        request.json['correo'],
+        request.json['numero_documento'],
+    ]
+
+    result = updateUsuarioController(datos)
+    return result
+
+#Eliminar usuario****************************************************************************************
+@app.route('/api/deleteUser/<id>', methods=["DELETE"])
+@cross_origin()
+
+def deleteUser(id):
+    return deleteUsuarioController(id)
+
 #Ver publicidad******************************************************************************************
 @app.route('/api/publicidad')
 @cross_origin()
@@ -120,6 +145,7 @@ def filtroCategoria(categoria):
 @cross_origin()
 def filtroDescuento():
     return  filtroDescuentoController()
+
 
 
 #pagina por defecto

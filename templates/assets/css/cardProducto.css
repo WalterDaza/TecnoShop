@@ -1,18 +1,158 @@
-.cardProduct-content{
+/* section de filtros y card product *********************************************************************/
+.sectionProductos-content{
+    margin-top: 60px;
     display: flex;
-    width: 100%;
-    background-color: rgb(231, 73, 73);
-    flex-direction: column-reverse;
-    /* justify-content: center;
+    background-color: #dedede;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap; */
-    gap: 40px;
+    padding: 10px;
 }
-.cardProducto-info{
+
+/* resultado de busqueda o de categoria seleccionada******************************************************/
+.sectionProductos-busqueda{
+    padding: 30px 0px 30px 0px;
+    background-color: #dedede;
+    border-radius: 10px;
+    text-align: center;
+    color: rgb(75, 75, 75);
+    width: 90%;
+    top: 2%;
+    position:absolute;
+}
+
+/* section filtro marca y precio ************************************************************************/
+.cardProducto-filtro-container{
+    min-width: 235px;
+    height: 90vh;
+}
+
+.cardProducto-filtro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 70px;
+    left: 12px;
+    width: 220px;
+    height: 87.5vh;
+    background-color: #ffffff;
+}
+
+/* section card product *********************************************************************************/
+.cardProducto-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: black; */
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cardProduct-content{
+    position: relative;
+    width: 20%;
+    background-color: #ffffff;
+    width: 250px;
+    height: 500px;
+    /* cursor: pointer; */
+    text-align: center;
+    border-radius: 10px;
+}
+
+.cardProduct-marca{
+    text-align: center;
+    padding-top: 5%;
+    color: rgb(121, 121, 121);
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.cardProduct-img-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
     width: 100%;
-    /* border: 1px solid red; */
-    /* background-color: aqua; */
+    height: 250px;
 }
+
+.cardProduct-content:hover .cardProduct-img {
+    transform: scale(1.05);
+}
+
 .cardProduct-img{
-    width: 120px;
+    width: 100%;
+    transition: transform 0.4s ease-in-out;
+}
+
+.cardProduct-nombre{
+    text-transform: capitalize;
+    font-size: 18px;
+    color: black;
+    padding: 2%;
+}
+
+.division{
+    width: 80%;
+    margin: 0px 24px;
+    border-color: rgb(201, 201, 201);
+}
+
+.cardProduct-descripcion{
+    overflow: hidden;
+    color: rgb(75, 75, 75);
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Número de líneas que quieres mostrar */
+    -webkit-box-orient: vertical;
+    /* height: calc(1 rem * 70); Ajustar la altura según el número de líneas */
+    line-height: 1.4em; /* Ajustar la altura de la línea */
+    font-size: 0.9rem;
+    min-height: 2.5rem;
+    padding: 1.5% 7%;
+}
+
+.cardProduct-descuento{
+    position: absolute;
+    top:10%;
+    padding: 5px;
+    background-color: #f7985d;
+    border-radius: 0px 10px 10px 0px;
+    font-size: 1.2rem;
+}
+
+.cardProduct-precioDescuento{
+    font-size: 20px;
+    color: black
+}
+
+.cardProduct-precio{
+    color: rgb(75, 75, 75);
+    font-size: 20px;
+}
+
+.tachado{
+    text-decoration: line-through;
+    font-size: 18px;    
+    color: rgb(121, 121, 121);
+}
+
+.cardProduct-stock{
+    font-size: 15px;
+    padding: 2% 0%;
+}
+
+.cardProduct-carrito{
+    position: absolute;
+    left: 50%; /* Coloca el punto central del botón en el centro del contenedor */
+    transform: translateX(-50%); /* Centra el botón horizontalmente */
+    bottom: 2%;
+    width: 60%;
+    border: none;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    background-color: #f0833f;
+    padding: 12px;
+    cursor: pointer;
 }

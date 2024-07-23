@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var inicioSesion = document.querySelectorAll(".inicioSesion");
   var cardInicioSesion = document.querySelector(".inicio--sesion--content");
   var cerrarinicioSesion = document.querySelector(".cerrarSesion");
+  var ingresarBoton = document.querySelector(".registro-boton")
   
     inicioSesion.forEach(function(boton) {
       boton.addEventListener("click", function() {
@@ -9,6 +10,13 @@ document.addEventListener("DOMContentLoaded", function() {
           cardInicioSesion.style.display = "block"; // Mostrar
       });
   });
+
+  ingresarBoton.addEventListener("click", function(event) {
+    // Ocultar el modal al iniciar sesión
+    cardInicioSesion.style.display = "none";
+    // Detener la propagación del evento para evitar que se propague al contenedor .inicio--sesión--content
+    event.stopPropagation();
+});
 
   cerrarinicioSesion.addEventListener("click", function(event) {
       // Ocultar el modal al hacer clic en el icono de cerrar
